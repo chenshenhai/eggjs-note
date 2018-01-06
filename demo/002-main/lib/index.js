@@ -8,7 +8,7 @@ class AppLoader extends EggLoader {
   }
 }
 
-class Application extends EggCore {
+class EggApplication extends EggCore {
   
   constructor(options) {
     super(options);
@@ -25,4 +25,4 @@ class Application extends EggCore {
   }
 }
 
-module.exports = Application;
+module.exports = EggApplication;
