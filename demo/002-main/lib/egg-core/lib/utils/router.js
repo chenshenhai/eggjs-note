@@ -44,10 +44,7 @@ function spliteAndResolveRouterParams({ args, app }) {
   // resolve controller
   const controller = middlewares.pop();
   middlewares.push(resolveController(controller, app));
-  return { prefix, middlewares };
-
-  return {  }
-
+  return { prefix, middlewares }; 
 }
 
 
