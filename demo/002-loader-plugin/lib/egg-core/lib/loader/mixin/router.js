@@ -1,11 +1,13 @@
 'use strict';
-
 const path = require('path');
 const utils = require('../../utils');
 
+
 module.exports = {
   loadRouter() {
-    // 加载Egg.js应用工程目录的路由
+    // TODO
+    console.log('[loader]: loadRouter');
+
     this.loadFile(path.join(this.options.baseDir, 'app/router.js'));
   },
 };

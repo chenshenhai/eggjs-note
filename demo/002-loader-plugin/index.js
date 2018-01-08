@@ -1,13 +1,12 @@
 'use strict';
 const Application = require('./lib/egg').Application;
 
-// 初始化Egg.js应用
 const app = new Application({
   baseDir: __dirname,
   type: 'application',
 });
 
-// 应用启动
+
 app.ready(err => {
   if (err) {
     console.log(err);

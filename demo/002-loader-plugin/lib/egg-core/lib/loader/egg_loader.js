@@ -1,5 +1,4 @@
 'use strict';
-
 const fs = require('fs');
 const isFunction = require('is-type-of').function;
 const utils = require('../utils');
@@ -23,8 +22,14 @@ class EggLoader {
   }
 }
 
-// 最小系统加载器，只加载路由
 const loaders = [
+  require('./mixin/plugin'),
+  require('./mixin/config'),
+  require('./mixin/extend'),
+  require('./mixin/custom'),
+  require('./mixin/service'),
+  require('./mixin/middleware'),
+  require('./mixin/controller'),
   require('./mixin/router'),
 ];
 for (const loader of loaders) {
