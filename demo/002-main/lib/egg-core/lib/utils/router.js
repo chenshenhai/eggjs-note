@@ -1,3 +1,5 @@
+'use strict';
+
 const KoaRouter = require('koa-router');
 const is = require('is-type-of');
 const methods = require('./index').methods;
@@ -11,10 +13,10 @@ class Router extends KoaRouter {
     this.patchRouterMethod();
   }
 
-  patchRouterMethod() { 
+  patchRouterMethod() {
 
     // patch router methods to support generator function middleware and string controller
-    methods.concat([ 'all' ]).forEach(method => {  
+    methods.concat([ 'all' ]).forEach(method => {
 
       this[method] = (...args) => {
         const splited = spliteAndResolveRouterParams({ args, app: this.app });
@@ -24,7 +26,7 @@ class Router extends KoaRouter {
       };
     });
   }
-  
+
 
 }
 
@@ -44,7 +46,7 @@ function spliteAndResolveRouterParams({ args, app }) {
   // resolve controller
   const controller = middlewares.pop();
   middlewares.push(resolveController(controller, app));
-  return { prefix, middlewares }; 
+  return { prefix, middlewares };
 }
 
 

@@ -1,9 +1,11 @@
+'use strict';
+
 const fs = require('fs');
 const isFunction = require('is-type-of').function;
 const utils = require('../utils');
 
 class EggLoader {
-  
+
   constructor(options) {
     this.options = options;
     this.app = this.options.app;
@@ -21,7 +23,7 @@ class EggLoader {
   }
 }
 
-const loaders = [ 
+const loaders = [
   require('./mixin/router'),
 ];
 for (const loader of loaders) {

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "./node_modules/.bin/nodemon index.js", 
+    "fix": "./node_modules/.bin/eslint --fix --ext .js ./"
   },
   "author": "",
   "license": "MIT",
@@ -15,5 +17,10 @@
     "koa-convert": "^1.2.0",
     "koa-router": "^7.3.0",
     "ready-callback": "^2.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-egg": "^6.0.0",
+    "nodemon": "^1.14.9"
   }
 }

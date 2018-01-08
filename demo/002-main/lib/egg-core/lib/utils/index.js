@@ -58,7 +58,7 @@ module.exports = {
     // capture the stack
     const obj = {};
     Error.captureStackTrace(obj);
-    let callSite = obj.stack[2];
+    const callSite = obj.stack[2];
     let fileName;
 
     Error.prepareStackTrace = prep;
@@ -71,7 +71,6 @@ module.exports = {
   },
 };
 
- 
 
 function prepareObjectStackTrace(obj, stack) {
   return stack;

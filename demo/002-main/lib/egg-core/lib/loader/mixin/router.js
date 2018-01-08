@@ -1,9 +1,10 @@
-const path = require('path')
+'use strict';
+
+const path = require('path');
 const utils = require('../../utils');
 
-
 module.exports = {
-  loadRouter() { 
+  loadRouter() {
     this.loadFile(path.join(this.options.baseDir, 'app/router.js'));
-  }
-}
+  },
+};
