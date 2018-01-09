@@ -24,12 +24,6 @@ class EggLoader {
 
 const loaders = [
   require('./mixin/plugin'),
-  require('./mixin/config'),
-  require('./mixin/extend'),
-  require('./mixin/custom'),
-  require('./mixin/service'),
-  require('./mixin/middleware'),
-  require('./mixin/controller'),
   require('./mixin/router'),
 ];
 for (const loader of loaders) {

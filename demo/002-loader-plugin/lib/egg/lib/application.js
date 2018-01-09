@@ -6,15 +6,6 @@ const EggLoader = require('./../../egg-core').EggLoader;
 class AppWorkerLoader extends EggLoader {
   loadAll() {
     this.loadPlugin();
-    this.loadConfig();
-    this.loadApplicationExtend();
-    this.loadContextExtend();
-    this.loadRequestExtend();
-    this.loadResponseExtend();
-    this.loadCustomApp();
-    this.loadMiddleware();
-    this.loadService();
-    this.loadController();
     this.loadRouter();
   }
 }
