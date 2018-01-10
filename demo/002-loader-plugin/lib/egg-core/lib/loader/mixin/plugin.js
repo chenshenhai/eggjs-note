@@ -11,7 +11,6 @@ module.exports = {
     const eggPluginConfigPaths = [ path.join(this.options.baseDir, 'config/plugin.js') ];
     // load plugins for application
     const appPlugins = this.readPluginConfigs(eggPluginConfigPaths);
-    console.log(appPlugins);
 
     // load plugins for frameworl (egg)
     // TODO
@@ -19,7 +18,19 @@ module.exports = {
     // load plugins for process.env.EGG_PLUGINS
     // TODO
 
+    this.orderPlugins = this.getOrderPlugins(appPlugins);
+    this.plugins = appPlugins;
 
+  },
+
+
+  getOrderPlugins(allPlugins) {
+    const orderPlugins = [];
+    const pluginNames = Object.getOwnPropertyNames(allPlugins);
+    pluginNames.forEach(pluginName => {
+      orderPlugins.push(allPlugins[pluginName]);
+    });
+    return orderPlugins;
   },
 
   /**

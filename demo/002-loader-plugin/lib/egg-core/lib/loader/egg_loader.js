@@ -1,5 +1,6 @@
 'use strict';
 const fs = require('fs');
+const path = require('path');
 const isFunction = require('is-type-of').function;
 const utils = require('../utils');
 
@@ -20,10 +21,45 @@ class EggLoader {
     if (inject.length === 0) inject = [ this.app ];
     return isFunction(ret) ? ret(...inject) : ret;
   }
+
+
+  getLoadUnits() {
+    if (this.dirs) {
+      return this.dirs;
+    }
+
+    const dirs = this.dirs = [];
+
+    if (this.orderPlugins) {
+      for (const plugin of this.orderPlugins) {
+        dirs.push({
+          path: plugin.path,
+          type: 'plugin',
+        });
+      }
+    }
+
+    // // framework or egg path
+    // for (const eggPath of this.eggPaths) {
+    //   dirs.push({
+    //     path: eggPath,
+    //     type: 'framework',
+    //   });
+    // }
+
+    // application
+    dirs.push({
+      path: this.options.baseDir,
+      type: 'app',
+    });
+    return dirs;
+  }
+
 }
 
 const loaders = [
   require('./mixin/plugin'),
+  require('./mixin/extend'),
   require('./mixin/router'),
 ];
 for (const loader of loaders) {

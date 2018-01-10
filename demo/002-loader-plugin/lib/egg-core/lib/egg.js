@@ -58,12 +58,14 @@ class EggCore extends Koa {
     require('ready-callback')({ timeout: this[EGG_READY_TIMEOUT_ENV] }).mixin(this);
 
     this.on('ready_stat', data => {
-      console.info('[egg:core:ready_stat] end ready task %s, remain %j', data.id, data.remain);
+      // console.info('[egg:core:ready_stat] end ready task %s, remain %j', data.id, data.remain);
     }).on('ready_timeout', id => {
-      console.warn('[egg:core:ready_timeout] %s seconds later %s was still unable to finish.', this[EGG_READY_TIMEOUT_ENV] / 1000, id);
+      // console.warn('[egg:core:ready_timeout] %s seconds later %s was still unable to finish.', this[EGG_READY_TIMEOUT_ENV] / 1000, id);
     });
 
-    this.ready(() => console.log('egg emit ready, application started'));
+    this.ready(() => {
+      console.log('egg emit ready, application started');
+    });
   }
 
   beforeStart(scope) {
