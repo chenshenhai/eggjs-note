@@ -8,5 +8,5 @@ module.exports = app => {
     ctx.body = 'hello world';
   });
 
-  console.log('app.p3_func=', app.p3_func);
+  app.p3_func()
 };
