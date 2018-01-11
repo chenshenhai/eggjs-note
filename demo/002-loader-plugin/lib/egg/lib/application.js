@@ -7,6 +7,9 @@ class AppWorkerLoader extends EggLoader {
   loadAll() {
     this.loadPlugin();
     this.loadApplicationExtend();
+    this.loadContextExtend();
+    this.loadRequestExtend();
+    this.loadResponseExtend();
     this.loadRouter();
   }
 }

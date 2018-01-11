@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-  get p3_func() {
+  get plugin3_app_func() {
     return function() {
-      console.log('this is plugin-03 function');
-    }
+      console.log('this is plugin3_app_func');
+    };
   },
 };

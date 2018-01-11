@@ -13,7 +13,19 @@ const originalPrototypes = {
 module.exports = {
 
   loadApplicationExtend() {
-    this.loadExtend('application', this.app); 
+    this.loadExtend('application', this.app);
+  },
+
+  loadRequestExtend() {
+    this.loadExtend('request', this.app.request);
+  },
+
+  loadResponseExtend() {
+    this.loadExtend('response', this.app.response);
+  },
+
+  loadContextExtend() {
+    this.loadExtend('context', this.app.context);
   },
 
 
@@ -28,37 +40,15 @@ module.exports = {
       if (!fs.existsSync(filepath)) {
         continue;
       }
-      const ext = utils.loadFile(filepath); 
+      const ext = utils.loadFile(filepath);
 
       const properties = Object.getOwnPropertyNames(ext).concat(Object.getOwnPropertySymbols(ext));
 
       for (const property of properties) {
-        // Copy descriptor
-        let descriptor = Object.getOwnPropertyDescriptor(ext, property);
-
-        // let originalDescriptor = Object.getOwnPropertyDescriptor(proto, property);
-        // if (!originalDescriptor) {
-        //   // try to get descriptor from originalPrototypes 
-        //   const originalProto = originalPrototypes[name];
-        //   if (originalProto) {
-        //     originalDescriptor = Object.getOwnPropertyDescriptor(originalProto, property);
-        //   }
-        // }
-        // if (originalDescriptor) {
-        //   // don't override descriptor
-        //   descriptor = Object.assign({}, descriptor);
-        //   if (!descriptor.set && originalDescriptor.set) {
-        //     descriptor.set = originalDescriptor.set;
-        //   }
-        //   if (!descriptor.get && originalDescriptor.get) {
-        //     descriptor.get = originalDescriptor.get;
-        //   }
-        // }
-        
+        const descriptor = Object.getOwnPropertyDescriptor(ext, property);
         Object.defineProperty(proto, property, descriptor);
-
       }
-
     }
   },
+
 };
