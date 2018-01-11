@@ -9,7 +9,7 @@ class EggLoader {
   constructor(options) {
     this.options = options;
     this.app = this.options.app;
-
+    this.eggPaths = this.getEggPaths();
   }
 
   loadFile(filepath, ...inject) {
@@ -20,6 +20,17 @@ class EggLoader {
     // function(arg1, args, ...) {}
     if (inject.length === 0) inject = [ this.app ];
     return isFunction(ret) ? ret(...inject) : ret;
+  }
+
+  getEggPaths() {
+    let eggPaths = [];
+    let proto = this.app;
+    const eggPath = proto[Symbol.for('egg#eggPath')];
+    const realpath = fs.realpathSync(eggPath);
+    if (!eggPaths.includes(realpath)) {
+      eggPaths.unshift(realpath);
+    }
+    return eggPaths;
   }
 
 
@@ -39,13 +50,13 @@ class EggLoader {
       }
     }
 
-    // // framework or egg path
-    // for (const eggPath of this.eggPaths) {
-    //   dirs.push({
-    //     path: eggPath,
-    //     type: 'framework',
-    //   });
-    // }
+    // framework or egg path
+    for (const eggPath of this.eggPaths) {
+      dirs.push({
+        path: eggPath,
+        type: 'framework',
+      });
+    }
 
     // application
     dirs.push({
