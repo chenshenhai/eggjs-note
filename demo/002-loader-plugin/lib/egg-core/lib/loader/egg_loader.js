@@ -34,6 +34,9 @@ class EggLoader {
   }
 
 
+  /**
+   * @name getLoadUnits 获取加载单元
+   */ 
   getLoadUnits() {
     if (this.dirs) {
       return this.dirs;

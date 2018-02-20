@@ -1,0 +1,23 @@
+{
+  "name": "001",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "./node_modules/.bin/nodemon index.js",
+    "fix": "./node_modules/.bin/eslint --fix --ext .js ./"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "is-type-of": "^1.2.0",
+    "koa": "^2.4.1",
+    "koa-router": "^7.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-egg": "^6.0.0",
+    "nodemon": "^1.14.9"
+  }
+}
