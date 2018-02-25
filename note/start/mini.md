@@ -6,14 +6,14 @@
 
 ![start-egg-mini-sys.png](./../image/start-egg-mini-sys.png)
 
-根据以上的 mini Egg.js 结构图可以看出，最小 Egg.js 系统可以列出以下内容: 
+根据以上的 mini Egg.js 结构图可以看出，最小Egg.js系统可以列出以下内容: 
 
 - `EggApplication` Egg.js 应用类
   - `EggCore` Egg.js 核心类
     - `Koa` Koa.js 2.x
     - `KoaRouter` 中间件 koa-router 模块
     - `AppWorkerLoader` Egg.js 应用加载器
-  - `EggLoader` Egg.js 内部加载器工具类
+  - `EggLoader` Egg.js 内部加载器工具类
 - `app` Egg.js 项目应用目录
 
 
