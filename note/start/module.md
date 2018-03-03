@@ -1,7 +1,7 @@
 # Egg.js 模块归类
 
 
-从前面的章《Egg.js最小系统》中，通过demo中的核心文件 [001-mini/lib/egg.js](https://github.com/chenshenhai/eggjs-note/blob/master/demo/001-mini/lib/egg.js)可以看到一百多行代码实现了 Egg.js 的最小系统。看似非常简单，然而实际上Egg.js的实现要复杂很多，也不可能一份js文件就能囊括所有功能，所以这个时候就需要将最小系统进行模块的划分和归类。
+从前面的章《Egg.js最小系统》中，通过demo中的核心文件 [001-mini/lib/egg.js](https://github.com/chenshenhai/eggjs-note/blob/master/demo/001-mini/lib/egg.js)可以看到一百多行代码实现了 Egg.js 的最小系统。看似非常简单，然而实际上Egg.js的实现要复杂很多，也不可能一份js文件就能囊括所有功能，所以这个时候就需要将最小系统进行模块的划分和归类。
 
 ## 核心模块归类
 
