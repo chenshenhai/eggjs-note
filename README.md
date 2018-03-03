@@ -23,6 +23,8 @@
 <img src="https://user-images.githubusercontent.com/8216630/36643554-09c850b0-1a88-11e8-9c75-495886f9bfcd.png" width="320" />
 
 
+##  目录
+
 * [Egg.js深入浅出学习笔记](README.md)
 * [致读者](note/reader/for-reader.md) 
 * [egg体系简析](note/sys/readme.md)
@@ -30,7 +32,8 @@
 * [最小系统]
   * [最小WEB系统](note/start/smallest.md)
   * [Egg.js最小系统](note/start/mini.md)
-  * [Egg.js模块归类]
+  * [Egg.js最小流程](note/start/process.md)
+  * [Egg.js模块归类](note/start/module.md)
   * [Egg.js路由增强]
   * [Egg.js最简加载器]
 * [核心体系egg-core](note/egg-core/readme.md)  
@@ -56,7 +59,7 @@
   * [插件] 
   * [框架] 
 * [其他]
-  * [待整理...]
+  * [待续...]
   
 
 ## 附加广告 O(∩_∩)O
