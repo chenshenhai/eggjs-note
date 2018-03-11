@@ -75,6 +75,10 @@ class Router extends KoaRouter {
     this.patchRouterMethod();
   }
 
+  /** 
+   * 兼容处理路由方法
+   * @name {Function} patchRouterMethod
+   */
   patchRouterMethod() {
     // patch router methods to support generator function middleware and string controller
     methods.concat([ 'all' ]).forEach(method => {
@@ -88,6 +92,7 @@ class Router extends KoaRouter {
   }
 
   /**
+   * 兼容处理继承 koa-router 的 register 方法
    * Create and register a route.
    * @param {String} path - url path
    * @param {Array} methods - Array of HTTP verbs
@@ -154,6 +159,7 @@ class Router extends KoaRouter {
 
 
 /**
+ * 统一处理封装router的参数
  * @param  {Object} options inputs
  * @param {Object} options.args router params
  * @param {Object} options.app egg application instance
@@ -179,6 +185,7 @@ function spliteAndResolveRouterParams({ args, app }) {
 
 
 /**
+ * 封装兼容处理 controller
  * resolve controller from string to function
  * @param  {String|Function} controller input controller
  * @param  {Application} app egg application instance
@@ -201,6 +208,7 @@ function resolveController(controller, app) {
 
 
 /**
+ * 封装兼容 Generator Function 类型的中间件
  * @param  {Array} middlewares middlewares and controller(last middleware)
  * @param  {Application} app  egg application instance
  * @return {Array} middlewares

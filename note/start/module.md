@@ -55,7 +55,7 @@
 ### 运行demo
 
 ```sh
-cd eggjs-note/module/
+cd eggjs-note/001-module/
 
 npm i
 
