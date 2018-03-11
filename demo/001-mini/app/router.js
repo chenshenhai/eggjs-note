@@ -2,10 +2,10 @@
 
 module.exports = app => {
 
-  app.get('/index', async ctx => {
+  app.router.get('/index', async ctx => {
     ctx.body = 'hello index';
   });
-  app.get('/', async ctx => {
+  app.router.get('/', async ctx => {
     ctx.body = 'hello world';
   });
 };

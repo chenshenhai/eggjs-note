@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const Koa = require('koa');
 const is = require('is-type-of');
 
 // EggLoader start

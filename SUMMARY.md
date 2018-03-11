@@ -8,7 +8,7 @@
   * [Egg.js最小系统](note/start/mini.md)
   * [Egg.js最小流程](note/start/process.md)
   * [Egg.js模块归类](note/start/module.md)
-  * [Egg.js路由增强]
+  * [Egg.js路由增强](note/start/router.md)
   * [Egg.js最简加载器]
 * [核心体系egg-core](note/egg-core/readme.md)  
   * [源码结构解析](note/egg-core/framework.md)  
