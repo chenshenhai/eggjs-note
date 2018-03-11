@@ -27,14 +27,14 @@
 
 * [Egg.js深入浅出学习笔记](README.md)
 * [致读者](note/reader/for-reader.md) 
-* [egg体系简析](note/sys/readme.md)
-  * [egg体系](note/sys/info.md) 
+* [Egg.js体系简析](note/sys/readme.md)
+  * [Egg.js体系](note/sys/info.md) 
 * [最小系统]
   * [最小WEB系统](note/start/smallest.md)
   * [Egg.js最小系统](note/start/mini.md)
   * [Egg.js最小流程](note/start/process.md)
   * [Egg.js模块归类](note/start/module.md)
-  * [Egg.js路由增强]
+  * [Egg.js路由增强](note/start/router.md)
   * [Egg.js最简加载器]
 * [核心体系egg-core](note/egg-core/readme.md)  
   * [源码结构解析](note/egg-core/framework.md)  
