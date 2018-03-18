@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   async index(ctx) {
     ctx.body = 'This is index page!';
@@ -6,4 +8,4 @@ module.exports = {
   async hello(ctx) {
     ctx.body = 'This is hello page!';
   },
-}
+};

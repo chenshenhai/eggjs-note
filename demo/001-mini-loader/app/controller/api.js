@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   async index(ctx) {
     ctx.body = {
@@ -41,4 +43,4 @@ module.exports = {
     };
   },
 
-}
+};

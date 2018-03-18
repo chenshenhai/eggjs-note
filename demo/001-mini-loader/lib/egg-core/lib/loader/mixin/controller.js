@@ -7,12 +7,12 @@ const utils = require('../../utils');
 const FULLPATH = require('../file_loader').FULLPATH;
 
 module.exports = {
- 
+
   loadController(opt) {
     opt = Object.assign({
       caseStyle: 'lower',
       directory: path.join(this.options.baseDir, 'app/controller'),
-      initializer: (obj, opt) => { 
+      initializer: (obj, opt) => {
         if (is.function(obj) && !is.generatorFunction(obj) && !is.class(obj) && !is.asyncFunction(obj)) {
           obj = obj(this.app);
         }
@@ -33,7 +33,7 @@ module.exports = {
     }, opt);
     const controllerBase = opt.directory;
 
-    this.loadToApp(controllerBase, 'controller', opt); 
+    this.loadToApp(controllerBase, 'controller', opt);
   },
 
 };
@@ -41,14 +41,14 @@ module.exports = {
 // wrap the class, yield a object with middlewares
 function wrapClass(Controller) {
   let proto = Controller.prototype;
-  const ret = {}; 
+  const ret = {};
   while (proto !== Object.prototype) {
     const keys = Object.getOwnPropertyNames(proto);
-    for (const key of keys) { 
+    for (const key of keys) {
       if (key === 'constructor') {
         continue;
-      } 
-      const d = Object.getOwnPropertyDescriptor(proto, key); 
+      }
+      const d = Object.getOwnPropertyDescriptor(proto, key);
       if (is.function(d.value) && !ret.hasOwnProperty(key)) {
         ret[key] = methodToMiddleware(Controller, key);
         ret[key][FULLPATH] = Controller.prototype.fullPath + '#' + Controller.name + '.' + key + '()';
@@ -68,7 +68,7 @@ function wrapClass(Controller) {
     };
   }
 }
- 
+
 function wrapObject(obj, path, prefix) {
   const keys = Object.keys(obj);
   const ret = {};
@@ -88,12 +88,12 @@ function wrapObject(obj, path, prefix) {
 
   function functionToMiddleware(func) {
     const objectControllerMiddleware = async function(...args) {
-      if ( this.app.config ) {
+      if (this.app.config) {
         if (!this.app.config.controller || !this.app.config.controller.supportParams) {
           args = [ this ];
         }
       }
-      
+
       return await utils.callFn(func, args, this);
     };
     for (const key in func) {

@@ -2,10 +2,10 @@
 'use strict';
 
 const assert = require('assert');
-const fs = require('fs'); 
+const fs = require('fs');
 const path = require('path');
 const globby = require('globby');
-const is = require('is-type-of'); 
+const is = require('is-type-of');
 const utils = require('../utils');
 const FULLPATH = Symbol('EGG_LOADER_ITEM_FULLPATH');
 const EXPORTS = Symbol('EGG_LOADER_ITEM_EXPORTS');
@@ -30,11 +30,11 @@ const defaults = {
  */
 class FileLoader {
 
-  constructor(options) { 
+  constructor(options) {
     this.options = Object.assign({}, defaults, options);
 
     // compatible old options _lowercaseFirst_
-    if (this.options.lowercaseFirst === true) { 
+    if (this.options.lowercaseFirst === true) {
       this.options.caseStyle = 'lower';
     }
   }
@@ -49,7 +49,7 @@ class FileLoader {
     const items = this.parse();
 
     const target = this.options.target;
-    for (const item of items) { 
+    for (const item of items) {
       // item { properties: [ 'a', 'b', 'c'], exports }
       // => target.a.b.c = exports
       item.properties.reduce((target, property, index) => {
@@ -74,7 +74,7 @@ class FileLoader {
 
     return target;
   }
- 
+
   parse() {
     let files = this.options.match || [ '**/*.js' ];
     files = Array.isArray(files) ? files : [ files ];
@@ -92,13 +92,13 @@ class FileLoader {
     }
 
     const filter = is.function(this.options.filter) ? this.options.filter : null;
-    const items = []; 
+    const items = [];
     for (const directory of directories) {
       const filepaths = globby.sync(files, { cwd: directory });
       for (const filepath of filepaths) {
         const fullpath = path.join(directory, filepath);
-        if (!fs.statSync(fullpath).isFile()) continue; 
-        const properties = getProperties(filepath, this.options); 
+        if (!fs.statSync(fullpath).isFile()) continue;
+        const properties = getProperties(filepath, this.options);
         const pathName = directory.split(/\/|\\/).slice(-1) + '.' + properties.join('.');
         const exports = getExports(fullpath, this.options, pathName);
 
@@ -121,25 +121,25 @@ class FileLoader {
 module.exports = FileLoader;
 module.exports.EXPORTS = EXPORTS;
 module.exports.FULLPATH = FULLPATH;
- 
-function getProperties(filepath, { caseStyle }) { 
+
+function getProperties(filepath, { caseStyle }) {
   if (is.function(caseStyle)) {
-    const result = caseStyle(filepath); 
+    const result = caseStyle(filepath);
     return result;
-  } 
+  }
   return defaultCamelize(filepath, caseStyle);
 }
- 
+
 function getExports(fullpath, { initializer, call, inject }, pathName) {
-  let exports = utils.loadFile(fullpath); 
+  let exports = utils.loadFile(fullpath);
   if (initializer) {
     exports = initializer(exports, { path: fullpath, pathName });
   }
- 
+
   if (is.class(exports) || is.generatorFunction(exports) || is.asyncFunction(exports)) {
     return exports;
   }
- 
+
   if (call && is.function(exports)) {
     exports = exports(inject);
     if (exports != null) {
@@ -157,7 +157,7 @@ function defaultCamelize(filepath, caseStyle) {
     if (!/^[a-z][a-z0-9_-]*$/i.test(property)) {
       throw new Error(`${property} is not match 'a-z0-9_-' in ${filepath}`);
     }
- 
+
     property = property.replace(/[_-][a-z]/ig, s => s.substring(1).toUpperCase());
     let first = property[0];
     switch (caseStyle) {

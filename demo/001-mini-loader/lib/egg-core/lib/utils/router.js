@@ -62,7 +62,7 @@ class Router extends KoaRouter {
     this.patchRouterMethod();
   }
 
-  /** 
+  /**
    * 兼容处理路由方法
    * @name {Function} patchRouterMethod
    */

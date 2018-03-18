@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const is = require('is-type-of');
 const FileLoader = require('./file_loader');
-const utils = require('./../utils')
+const utils = require('./../utils');
 
 // EggLoader start
 class EggLoader {

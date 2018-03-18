@@ -2,7 +2,9 @@
 
 const fs = require('fs');
 const path = require('path');
-const is = require('is-type-of'); 
+const is = require('is-type-of');
+const convert = require('koa-convert');
+const co = require('co');
 
 module.exports = {
 
@@ -37,6 +39,5 @@ module.exports = {
       throw err;
     }
   },
-}
-
+};
 
