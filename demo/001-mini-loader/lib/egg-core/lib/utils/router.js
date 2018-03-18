@@ -10,20 +10,7 @@ const utility = require('utility');
 const co = require('co');
 const convert = require('koa-convert');
 
-const utils = {
-  methods: [ 'head', 'options', 'get', 'put', 'patch', 'post', 'delete', 'all' ],
-
-  middleware(fn) {
-    return is.generatorFunction(fn) ? convert(fn) : fn;
-  },
-
-  async callFn(fn, args, ctx) {
-    args = args || [];
-    if (!is.function(fn)) return;
-    if (is.generatorFunction(fn)) fn = co.wrap(fn);
-    return ctx ? fn.call(ctx, ...args) : fn(...args);
-  },
-};
+const utils = require('./index');
 
 const { methods } = utils;
 

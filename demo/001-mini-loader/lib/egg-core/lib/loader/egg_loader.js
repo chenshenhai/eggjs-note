@@ -3,6 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 const is = require('is-type-of');
+const FileLoader = require('./file_loader');
+const utils = require('./../utils')
 
 // EggLoader start
 class EggLoader {
@@ -11,24 +13,40 @@ class EggLoader {
     this.app = this.options.app;
   }
 
+
   loadFile(filepath, ...inject) {
     if (!fs.existsSync(filepath)) {
       return null;
     }
-    const extname = path.extname(filepath);
-    if (![ '.js', '.node', '.json', '' ].includes(extname)) {
-      return fs.readFileSync(filepath);
-    }
-    const ret = require(filepath);
+
+    const ret = utils.loadFile(filepath);
     // function(arg1, args, ...) {}
     if (inject.length === 0) inject = [ this.app ];
     return is.function(ret) ? ret(...inject) : ret;
+  }
+
+  /**
+   * Load files using {@link FileLoader}, inject to {@link Application}
+   * @param {String|Array} directory - see {@link FileLoader}
+   * @param {String} property - see {@link FileLoader}
+   * @param {Object} opt - see {@link FileLoader}
+   * @since 1.0.0
+   */
+  loadToApp(directory, property, opt) {
+    const target = this.app[property] = {};
+    opt = Object.assign({}, {
+      directory,
+      target,
+      inject: this.app,
+    }, opt);
+    new FileLoader(opt).load();
   }
 }
 
 
 const loaders = [
   require('./mixin/router'),
+  require('./mixin/controller'),
 ];
 for (const loader of loaders) {
   Object.assign(EggLoader.prototype, loader);
