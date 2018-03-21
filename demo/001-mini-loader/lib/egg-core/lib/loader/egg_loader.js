@@ -1,7 +1,6 @@
 'use strict';
 
 const fs = require('fs');
-const path = require('path');
 const is = require('is-type-of');
 const FileLoader = require('./file_loader');
 const utils = require('./../utils');
@@ -25,19 +24,12 @@ class EggLoader {
     return is.function(ret) ? ret(...inject) : ret;
   }
 
-  /**
-   * Load files using {@link FileLoader}, inject to {@link Application}
-   * @param {String|Array} directory - see {@link FileLoader}
-   * @param {String} property - see {@link FileLoader}
-   * @param {Object} opt - see {@link FileLoader}
-   * @since 1.0.0
-   */
+
   loadToApp(directory, property, opt) {
     const target = this.app[property] = {};
     opt = Object.assign({}, {
       directory,
       target,
-      inject: this.app,
     }, opt);
     new FileLoader(opt).load();
   }

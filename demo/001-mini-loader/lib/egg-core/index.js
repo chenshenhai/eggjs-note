@@ -1,9 +1,9 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
+// const fs = require('fs');
+// const path = require('path');
 const Koa = require('koa');
-const is = require('is-type-of');
+// const is = require('is-type-of');
 const Router = require('./lib/utils/router');
 const EggLoader = require('./lib/loader/egg_loader');
 

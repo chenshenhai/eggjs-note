@@ -1,14 +1,14 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
-const Koa = require('koa');
 const KoaRouter = require('koa-router');
 const is = require('is-type-of');
 const inflection = require('inflection');
-const utility = require('utility');
-const co = require('co');
-const convert = require('koa-convert');
+// const fs = require('fs');
+// const path = require('path');
+// const Koa = require('koa');
+// const utility = require('utility');
+// const co = require('co');
+// const convert = require('koa-convert');
 
 const utils = require('./index');
 
@@ -64,7 +64,6 @@ class Router extends KoaRouter {
 
   /**
    * 兼容处理路由方法
-   * @name {Function} patchRouterMethod
    */
   patchRouterMethod() {
     // patch router methods to support generator function middleware and string controller
