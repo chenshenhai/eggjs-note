@@ -6,19 +6,6 @@ const globby = require('globby');
 const FULLPATH = Symbol('EGG_LOADER_ITEM_FULLPATH');
 const EXPORTS = Symbol('EGG_LOADER_ITEM_EXPORTS');
 
-const defaults = {
-  directory: null,
-  target: null,
-  match: undefined,
-  ignore: undefined,
-  lowercaseFirst: false,
-  caseStyle: 'camel',
-  initializer: null,
-  call: true,
-  override: false,
-  inject: undefined,
-  filter: null,
-};
 
 /**
  * Load files from directory to target object.
@@ -27,7 +14,7 @@ const defaults = {
 class FileLoader {
 
   constructor(options) {
-    this.options = Object.assign({}, defaults, options);
+    this.options = options;
   }
 
   /**
