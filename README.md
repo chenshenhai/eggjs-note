@@ -38,7 +38,7 @@
   * [Egg.js最简加载器](note/start/mini-loader.md)
 * [核心体系egg-core](note/egg-core/readme.md)  
   * [源码结构解析](note/egg-core/framework.md)  
-  * [实用内置工具]
+  * [实用内置工具](note/egg-core/util.md)
   * [Loader机制] 
   * [Plugin加载实现]
   * [Config加载实现]
