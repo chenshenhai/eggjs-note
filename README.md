@@ -1,5 +1,10 @@
 # Egg.js 深入浅出学习笔记 (每周一更) 
 
+<img src="https://user-images.githubusercontent.com/8216630/36643554-09c850b0-1a88-11e8-9c75-495886f9bfcd.png" width="320" />
+
+## 关于本书
+- [关于作者(我)](https://chenshenhai.github.io)
+
 ## 前言
 
 去年(2017)的这个时候写过一本 [《Koa2进阶学习笔记》](https://github.com/chenshenhai/koa2-note)，主要demo+讲解的方式解读 Koa.js 2.x 的快速学习使用。
@@ -18,9 +23,6 @@
 - 欢迎提出建议一起学习 Koa.js的高阶使用
 - 欢迎对本书及demo提PR
 - 交流请移步 [issue](https://github.com/chenshenhai/eggjs-note/issues)
-
-
-<img src="https://user-images.githubusercontent.com/8216630/36643554-09c850b0-1a88-11e8-9c75-495886f9bfcd.png" width="320" />
 
 
 ##  目录
